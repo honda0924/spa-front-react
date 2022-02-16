@@ -14,7 +14,7 @@ const TaskItem: React.VFC<Props> = ({task}) => {
       <div><span>{ task.title }</span></div>
       <button className="btn is-delete">削除</button>
     </li>
-  );
+  )
 }
 
 export default TaskItem;
