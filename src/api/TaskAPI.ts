@@ -15,7 +15,16 @@ const updateDoneTask = async ({id, is_done}: Task) =>{
   return data;
 }
 
+const createTask = async (title: string) =>{
+  const {data} = await axios.post<Task>(
+    `http://localhost:8090/api/tasks/`,
+    { title: title }
+  );
+  return data;
+}
+
 export {
   getTasks,
-  updateDoneTask
+  updateDoneTask,
+  createTask
 }
