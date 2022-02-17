@@ -23,8 +23,25 @@ const createTask = async (title: string) =>{
   return data;
 }
 
+const updateTask = async ({id, task}: {id:number, task: Task}) =>{
+  const {data} = await axios.put<Task[]>(
+    `http://localhost:8090/api/tasks/${id}`,
+    task
+  );
+  return data;
+}
+
+const deleteTask = async ({id}: Task) =>{
+  const {data} = await axios.delete<Task[]>(
+    `http://localhost:8090/api/tasks/${id}`
+  );
+  return data;
+}
+
 export {
   getTasks,
   updateDoneTask,
-  createTask
+  createTask,
+  updateTask,
+  deleteTask
 }
